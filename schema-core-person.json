@@ -1,0 +1,59 @@
+{
+    "$id": "./schema-core-person.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "$ref": "#/$defs/props",
+    "required": [
+        "local_identifier",
+        "entity_type"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+        "props": {
+            "properties": {
+                "local_identifier": {"type": "string"},
+                "identifiers": {"$ref": "#/$defs/identifiers_type"},
+                "entity_type": {
+                    "enum": ["person"]
+                },
+                "given_name": {"type": "string"},
+                "family_name": {"type": "string"},
+                "fullname": {"type": "string"},
+                "agent": {"type": "string"},
+                "affiliations": {"$ref": "#/$defs/affiliations_type"}
+            }
+        },
+        "identifiers_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "scheme": {"enum": ['local', 'doi', 'orcid', 'handle', 'cordis', 'openalex']},
+                    "value": {"type": "string"}
+                },
+                "required": [
+                    "scheme",
+                    "value"
+                ]
+            }
+        },
+        "affiliations_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "organisation": {"type": "string"},
+                    "start_date": {"type": "string"},
+                    "end_date": {"type": "string"}
+                },
+                "required": [
+                    "end_date",
+                    "organisation",
+                    "start_date"
+                ]
+            }
+        }
+    }
+}
