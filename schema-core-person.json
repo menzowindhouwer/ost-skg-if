@@ -29,7 +29,7 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "scheme": {"enum": ['local', 'doi', 'orcid', 'handle', 'cordis', 'openalex']},
+                    "scheme": {"enum": ["local", "doi", "orcid", "handle", "cordis", "openalex"]},
                     "value": {"type": "string"}
                 },
                 "required": [
