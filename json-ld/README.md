@@ -3,7 +3,7 @@
 
 - builds on https://github.com/essepuntato/skg-if
 
-- Turtle instances created using [convert.py](https://github.com/essepuntato/skg-if/blob/main/convert.py)
+- ttl instances created using [convert.py](https://github.com/essepuntato/skg-if/blob/main/convert.py)
 
 ```sh
 python3 convert.py example-agent.json > example-agent.ttl
