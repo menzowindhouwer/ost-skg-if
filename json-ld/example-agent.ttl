@@ -1,0 +1,47 @@
+@prefix : <https://w3id.org/skg-if/data/example/> .
+@prefix ifv: <https://w3id.org/skg-if/vocab/example/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix scoro: <http://purl.org/spar/scoro/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ti: <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#> .
+@prefix tvc: <http://www.essepuntato.it/2012/04/tvc/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.com/ns#> .
+
+:am a foaf:Person, ifv:Agent ;
+    ex:foo "bar" ;
+    datacite:hasIdentifier [ datacite:usesIdentifierScheme datacite:orcid ;
+            literal:hasLiteralValue "0000-0002-5193-7851" ] ;
+    pro:holdsRoleInTime [ pro:relatesToOrganization :org_1 ;
+            pro:withRole scoro:affiliate ;
+            tvc:atTime [ ti:hasIntervalEndDate "2019-02-11T23:59:59+00:00"^^xsd:dateTime ;
+                    ti:hasIntervalStartDate "2017-04-13T00:00:00+00:00"^^xsd:dateTime ] ],
+        [ pro:relatesToOrganization :org_2 ;
+            pro:withRole scoro:affiliate ;
+            tvc:atTime [ ti:hasIntervalStartDate "2019-02-12T00:00:00+00:00"^^xsd:dateTime ] ] ;
+    foaf:familyName "Mannocci" ;
+    foaf:givenName "Andrea" .
+
+:skg-if-wg a foaf:Agent ;
+    foaf:name "SKG-IF working group" .
+
+:org_2 a frapo:ResearchInstitute,
+        foaf:Organization ;
+    frapo:hasAcronym "CNR" ;
+    frapo:hasCountry "IT" ;
+    datacite:hasIdentifier [ datacite:usesIdentifierScheme datacite:ror ;
+            literal:hasLiteralValue "04zaypm56" ] ;
+    skos:altLabel "Conseil National de la Recherche",
+        "National Research Council" ;
+    foaf:homepage <https://www.cnr.it/> ;
+    foaf:name "Consiglio Nazionale delle Ricerche" .
+
+:persx
+    datacite:hasIdentifier [ datacite:usesIdentifierScheme datacite:ror ;
+            literal:hasLiteralValue "04zaypm56" ] ;
+
+

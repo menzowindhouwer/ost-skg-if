@@ -1,0 +1,30 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ifs: <https://w3id.org/skg-if/shape/example/> .
+@prefix ifv: <https://w3id.org/skg-if/vocab/example/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix ex: <http://example.com/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ifs:AgentShape
+  a sh:NodeShape ;
+  sh:targetClass ifv:Agent ;
+  sh:property
+    ifs:hasIdentifier
+.
+
+ifs:hasIdentifier
+  a sh:PropertyShape ;
+  sh:path datacite:hasIdentifier ;
+  sh:minCount 1 ;
+.
+
+ifs:AgentExtraShape
+  a sh:NodeShape ;
+  sh:targetClass ifv:Agent ;
+  sh:property [
+    sh:path ex:foo ;
+		sh:datatype xsd:string ;
+		sh:pattern "^bar$" ;
+    sh:minCount 1 ;
+  ]
+.
